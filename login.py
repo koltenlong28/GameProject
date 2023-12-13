@@ -18,6 +18,9 @@ def login():
             if username == storedusername:
                 if password == storedpassword:
                     print(f"login successful. welcome {username}. your highest score is {score}")
+                    import turtle as trtl
+                    import random
+                    trtl.mainloop()
                     return
                 else:
                     print("incorrect password.")
@@ -33,7 +36,4 @@ def login():
 
 if __name__ == "__main__":
     login()
-    import turtle as trtl
-    import random
-    
-    trtl.mainloop()
+
