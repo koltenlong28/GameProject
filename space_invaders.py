@@ -3,6 +3,8 @@ import random
 import sys
 import os
 
+os.system('clear')
+
 width,height = 800, 600
 playersize = 50
 enmysize = 50
@@ -52,6 +54,8 @@ class Game:
         self.score = 0
         self.gamerunning = False
 
+
+
     def drawbackground(self):
         self.screen.blit(backgroundimage, (0, 0))
 
@@ -96,6 +100,7 @@ class Game:
         with open('playerdata.dat', 'r') as file:
             for line in file:
                 storedusername, password, storedscore = line.strip().split(',')
+                print(storedscore)
                 storedscore = int(storedscore)
                 if storedusername == username:
                     storedscore = max(storedscore, self.score)
@@ -149,6 +154,9 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
+
+
+
             if not self.gameover:
                 keys = pygame.key.get_pressed()
                 if keys[pygame.K_LEFT] and self.player.rect.left > 0:
@@ -188,7 +196,7 @@ class Game:
                         if bullet.colliderect(enmy):
                             self.bullets.remove(bullet)
                             self.enemies.remove(enmy)
-                            self.score += 1
+                            self.score += 100
 
                 for enmy in self.enemies:
                     if self.player.rect.colliderect(enmy):
@@ -209,7 +217,8 @@ class Game:
                 self.displayhighestscore(username)
                 self.displaytopscores()
                 pygame.display.flip()
-                pygame.time.delay(5000)  
+                pygame.time.delay(5000) 
+                 
 
                 self.gamerunning = False
 
