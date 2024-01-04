@@ -1,0 +1,1 @@
+my project uses pip pygame in order for it to work
